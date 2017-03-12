@@ -1,0 +1,9 @@
+venv
+xlwrap.egg-info
+__pycache__/
+.idea
+build
+dist
+htmlcov
+.coverage
+
