@@ -1,6 +1,7 @@
 ## xlwrap
 [![Build Status](https://travis-ci.org/erik-sn/xlwrap.svg?branch=master)](https://travis-ci.org/erik-sn/xlwrap)
-[![Coverage Status](https://coveralls.io/repos/github/erik-sn/xlwrap/badge.svg?branch=master)](https://coveralls.io/github/erik-sn/xlwrap?branch=master)
+[![codecov](https://codecov.io/gh/erik-sn/xlwrap/branch/master/graph/badge.svg)](https://codecov.io/gh/erik-sn/xlwrap)
+
 ### Purpose
 This project is meant to be a simple wrapper around xlrd and 
 openypxl. This allows for manipulating of .xls, .xlsx, and .xlsm
