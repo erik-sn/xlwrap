@@ -11,9 +11,6 @@ class TestExcelManagerUnit(unittest.TestCase):
     def setUp(self):
         self.manager = ExcelManager(os.path.join(DIRECTORY, 'test_excel/read_test.xls'))
 
-    def tearDown(self):
-        self.manager.close()
-
     def test_parse_row_column_from_args(self):
         self.assertEqual(self.manager._ExcelManager__parse_row_column_from_args('A1'), (1, 1))
         self.assertEqual(self.manager._ExcelManager__parse_row_column_from_args('B5'), (5, 2))
@@ -69,9 +66,6 @@ class TestExcelManagerIntegration(unittest.TestCase):
         self.xlsm = ExcelManager(os.path.join(DIRECTORY, 'test_excel', 'read_test.xlsm'))
 
     def tearDown(self):
-        self.xls.close()
-        self.xlsx.close()
-        self.xlsm.close()
         if os.path.exists(os.path.join(DIRECTORY, 'test_excel', 'write_test.xls')):
             os.remove(os.path.join(DIRECTORY, 'test_excel', 'write_test.xls'))
         if os.path.exists(os.path.join(DIRECTORY, 'test_excel', 'write_test.xlsx')):
@@ -85,32 +79,32 @@ class TestExcelManagerIntegration(unittest.TestCase):
 
     def test_xls_change_sheet_name(self):
         self.assertEqual(self.xls.sheet.name, 'Sheet1')
-        self.xls.change_sheet(name='other_sheet')
+        self.xls.change_sheet('other_sheet')
         self.assertEqual(self.xls.sheet.name, 'other_sheet')
 
     def test_xls_change_sheet_index(self):
         self.assertEqual(self.xls.sheet.name, 'Sheet1')
-        self.xls.change_sheet(index=2)
+        self.xls.change_sheet(2)
         self.assertEqual(self.xls.sheet.name, 'other_sheet')
 
     def test_xlsx_change_sheet_name(self):
         self.assertEqual(self.xlsx.sheet.title, 'Sheet1')
-        self.xlsx.change_sheet(name='other_sheet')
+        self.xlsx.change_sheet('other_sheet')
         self.assertEqual(self.xlsx.sheet.title, 'other_sheet')
 
     def test_xlsx_change_sheet_index(self):
         self.assertEqual(self.xlsx.sheet.title, 'Sheet1')
-        self.xlsx.change_sheet(index=2)
+        self.xlsx.change_sheet(2)
         self.assertEqual(self.xlsx.sheet.title, 'other_sheet')
 
     def test_xlsm_change_sheet_name(self):
         self.assertEqual(self.xlsm.sheet.title, 'Sheet1')
-        self.xlsm.change_sheet(name='other_sheet')
+        self.xlsm.change_sheet('other_sheet')
         self.assertEqual(self.xlsm.sheet.title, 'other_sheet')
 
     def test_xlsm_change_sheet_index(self):
         self.assertEqual(self.xlsm.sheet.title, 'Sheet1')
-        self.xlsm.change_sheet(index=2)
+        self.xlsm.change_sheet(2)
         self.assertEqual(self.xlsm.sheet.title, 'other_sheet')
 
     def test_xls_read(self):

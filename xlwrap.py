@@ -57,13 +57,22 @@ class ExcelManager:
             self.__is_xls = False
             self.__init_excel(sheet_name, sheet_index)
 
-    def change_sheet(self, name=None, index=None):
+    def change_sheet(self, *args):
         """
         Change the current active sheet object
         :param name: sheet name
         :param index: sheet index (1 index)
         :return: None
         """
+        if isinstance(args[0], str):
+            name = args[0]
+            index = None
+        elif isinstance(args[0], int):
+            name = None
+            index = args[0]
+        else:
+            raise ValueError('Specify either the sheet name or sheet index to change sheets')
+
         if self.__is_xls:
             self.__select_xls_sheet(name, index - 1 if index else None)
         else:
@@ -223,13 +232,6 @@ class ExcelManager:
         input_val = value.lower() if case_insensitive else value
         return input_val, column_val
 
-    def close(self):
-        """
-        close the workbook if it is an openpyxl workbook
-        :return:
-        """
-        if not self.__is_xls:
-            self.workbook.close()
 
     def __parse_row_column_from_args(self, *args):
         """

@@ -61,9 +61,9 @@ manager = ExcelManager('path/to/file.xlsx')
 
 By default the first sheet is opened, change it with this:
 ```python
-manager.change_sheet(index=2)  # 1 based index!
+manager.change_sheet(2)  # 1 based index!
 # or
-manager.change_sheet(name='Sheet2')
+manager.change_sheet('Sheet2')
 ```
 
 #### Retrieving a Value: 
@@ -157,15 +157,6 @@ save the currently opened workbook:
 ```python
 manager.save()  # save in the same location you read from
 manager.save('new/filepath/here.xlsx')  # save in a new location
-```
-
-#### Closing
-`.close()`
-
-close the currently opened workbook:
-
-```python
-manager.close()
 ```
 
 #### Raw Objects
