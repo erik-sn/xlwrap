@@ -1,12 +1,19 @@
 language: python
 python:
-  - "3.4"
-  - "3.5"
-  - "3.6"
+- '3.4'
+- '3.5'
+- '3.6'
 install:
+<<<<<<< HEAD
   - pip install -r requirements.txt
   - pip install codecov
 script:
   - coverage run --source=xlwrap -m unittest discover tests
 after_success:
   - codecov
+deploy:
+  provider: pypi
+  user: erik-sn
+  password:
+    secure: qITtl6s9Yg43nD8C2Rl4pCSmXO2OUnGuMAQ4Vjsvbh7p94NGM9lymmmd58njMEJ4pZ5JyEIBZIaGJFP9gWcQSB5nKjzi+XZzE6kEc+6ZusC7ETbt4ygkfijTtzuJajF9qapGDoNOrnndmHlJm1G+qsq6jGZLca5IbY+Tx7mHQkw90zPneBgf63pxDweKmzpZkdi8GuAHNA2Asr2WwQkdRxZEcdCwt6CgGINR7Hxe2W+xsRmbi7ebDZybWxI1AShuomNGVL6o2qFnTmQ/JVS6luEjud2vuGGLm+oTyFQ8diE7OG5/Torj7gvUzIjRGaoWQtg8LfA2FzynGVU5qfPrIVtpHFfWKsVlqwW1OrfNzVIcjx477haHXXaxrwQhIHfIe22mOr6fGqLFqjbEO1S9iLbhZ2XmqQyWIGEmaT7jQhifWBUtasbcw7UXW7sGZxk0blDgQVPKiYmyYGg9AtXCk1fq+thtetjlzqWSkAz1VSmFPPEarmi06vIeBna524xcNtuMvBUlVry7BdgY3MMc1RxNzn+2aiH/A/aLMpgCwRW0rOeTbv9mLLXv7oDllUDK+GaT69XHbLPMskz9gp4E9nSZyaIkdU3mVVf3llvpFV/OTvpasDY5+YVV5WkZM/0lVlHfBP8G5FJcWkTgF3ByCHjYfrqc4UkiIpyMpQ85D90=
+
