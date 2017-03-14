@@ -2,7 +2,7 @@ from setuptools import setup
 
 setup(
     name='xlwrap',
-    version='0.1.2',
+    version='0.1.3',
     description='A library to manipulate excel files of multiple types with an identical, simple API',
     url='https://github.com/erik-sn/xlwrap.git',
     author='Erik Niehaus',
