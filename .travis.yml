@@ -5,8 +5,8 @@ python:
   - "3.6"
 install:
   - pip install -r requirements.txt
-  - pip install coveralls
+  - pip install codecov
 script:
-  coverage run --source=xlwrap -m unittest discover tests
+  - coverage run --source=xlwrap -m unittest discover tests
 after_success:
-  COVERALLS_REPO_TOKEN=Klfr4GQz2oEUb7DxTidFHJaKExkycOeCc coveralls
+  - codecov
