@@ -88,9 +88,9 @@ row = manager.row(1)
 
 Retrieve a list of all cell values at this column index:
 ```python
-column = manager.row(1)
+column = manager.column(1)
 # or
-column = manager.row('A')
+column = manager.column('A')
 ```
 
 #### Inserting a Value
